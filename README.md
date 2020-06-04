@@ -26,11 +26,11 @@ Install the HiCUP repository : https://www.bioinformatics.babraham.ac.uk/project
 # Running HiCUP Tutorial
 
 The snake.hicup.yml contains a workflow that: 
-  -downloads the HiCUP training datasets.
-  -downloads the reference genome.
-  -builds the Bowtie2 index from the reference genome.
-  -digests the reference genome with hicup-digester.
-  -runs the HiCUP pipeline.
+  - Downloads the HiCUP training datasets.
+  - Downloads the reference genome.
+  - Builds the Bowtie2 index from the reference genome.
+  - Digests the reference genome with hicup-digester.
+  - Runs the HiCUP pipeline.
   
 ## Local run
 
