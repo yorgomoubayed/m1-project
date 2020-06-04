@@ -1,3 +1,15 @@
+This work was carried out as part of a tutored project (7 weeks) in the first year of the master's degree in bioinformatics.
+The three-dimensional conformation of the genome is complex, dynamic and crucial for the regulation of gene expression. Chromosome conformation capture methods coupled 
+with high-throughput sequencing (Hi-C, capture Hi-C...) have revealed how the organization of the genome is interconnected with the nuclear architecture. This work focuses
+on the pre-processing of three-dimensional conformation data of the mammalian genome via a bioinformatics pipeline: HiCUP. This is the starting point for the analysis of Hi-C data.
+
+The repository contains the files generated to perform the given analysis. These files include:
+- snake.hicup.yml, a snakemake script that automates data pre-processing with HiCUP.
+- Hicup.yml, to generate the conda environment with all dependencies to run the HiCUP pipeline.
+- for downloading the FastQ files of the GSM3682164 dataset.
+- cluster.json, configuration file that provides the cluster with user-input settings to run the workflow. Edit as required.
+- hicup_config_file.conf, configuration file for the hicup Perl script. Edit as required.
+
 # Install HiCUP
 
 ~~~
@@ -12,8 +24,6 @@ conda env update -f Hicup.yml
 Install the HiCUP repository : https://www.bioinformatics.babraham.ac.uk/projects/hicup/hicup_v0.7.3.tar.gz
 
 # Running HiCUP Tutorial
-
-The hicup_config_file.conf file is a configuration file for the hicup Perl script - edit as required
 
 The snake.hicup.yml contains a workflow that: 
   -downloads the HiCUP training datasets.
@@ -30,10 +40,6 @@ snakemake --cores 6 -p -d out -s snake.hicup.yml
 
 ## Cluster run
 
-The cluster.json file is a configuration that provides the cluster with user-input settings to run the workflow. Edit as required.
 ~~~
 snakemake -d out -s snake.hicup.yml -p -j 999 --cluster-config cluster.json --cluster "sbatch --account {cluster.account} --partition {cluster.partition} --time {cluster.time} --job-name {cluster.job-name} --ntasks-per-node {cluster.ntasks-per-node} --output {cluster.output} --error {cluster.error}"
 ~~~
-
-
-
