@@ -6,7 +6,7 @@ on the pre-processing of three-dimensional conformation data of the mammalian ge
 The repository contains the files generated to perform the given analysis. These files include:
 - snake.hicup.yml, a snakemake script that automates data pre-processing with HiCUP.
 - Hicup.yml, to generate the conda environment with all dependencies to run the HiCUP pipeline.
-- for downloading the FastQ files of the GSM3682164 dataset.
+- sra_explorer_fastq_download.sh, for downloading the FastQ files of the GSM3682164 dataset.
 - cluster.json, configuration file that provides the cluster with user-input settings to run the workflow. Edit as required.
 - hicup_config_file.conf, configuration file for the hicup Perl script. Edit as required.
 
