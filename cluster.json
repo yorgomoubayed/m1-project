@@ -1,0 +1,13 @@
+{
+    "__default__" :
+    {
+        "account" : "b165",
+        "partition" : "skylake",
+        "time" : "12:00:00",
+        "job-name" : "malavr",
+        "ntasks-per-node" : "8",
+        "error" : "slurm.%j.err",
+        "output" : "slurm.%j.out",
+    },
+}
+
