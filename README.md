@@ -1,7 +1,7 @@
-This work was carried out as part of a tutored project (7 weeks) in the first year of the master's degree in bioinformatics.
 The three-dimensional conformation of the genome is complex, dynamic and crucial for the regulation of gene expression. Chromosome conformation capture methods coupled 
-with high-throughput sequencing (Hi-C, capture Hi-C...) have revealed how the organization of the genome is interconnected with the nuclear architecture. This work focuses
-on the pre-processing of three-dimensional conformation data of the mammalian genome via a bioinformatics pipeline: HiCUP. This is the starting point for the analysis of Hi-C data.
+with high-throughput sequencing (Hi-C, capture Hi-C...) have revealed how the organization of the genome is interconnected with the nuclear architecture. This work was carried out 
+as part of a tutored project (7 weeks) in the first year of the master's degree in bioinformatics.It focuses on the pre-processing of three-dimensional conformation data of the mammalian 
+genome via a bioinformatics pipeline: HiCUP. This is the starting point for the analysis of Hi-C data.
 
 The repository contains the files generated to perform the given analysis. These files include:
 - snake.hicup.yml, a snakemake script that automates data pre-processing with HiCUP.
