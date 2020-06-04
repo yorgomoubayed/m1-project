@@ -20,7 +20,9 @@ conda env create -f Hicup.yaml
 conda activate Hicup
 ~~~
 
-Install the HiCUP repository : https://www.bioinformatics.babraham.ac.uk/projects/hicup/hicup_v0.7.3.tar.gz
+~~~
+wget https://www.bioinformatics.babraham.ac.uk/projects/hicup/hicup_v0.7.3.tar.gz
+~~~
 
 # Running HiCUP
 
