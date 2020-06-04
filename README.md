@@ -13,12 +13,11 @@ The repository contains the files generated to perform the given analysis. These
 # Installing HiCUP
 
 ~~~
-conda create -n Hicup python=3.7
+conda env create -f Hicup.yaml
 ~~~
 
 ~~~
 conda activate Hicup
-conda env update -f Hicup.yml
 ~~~
 
 Install the HiCUP repository : https://www.bioinformatics.babraham.ac.uk/projects/hicup/hicup_v0.7.3.tar.gz
