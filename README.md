@@ -5,7 +5,7 @@ genome via a bioinformatics pipeline: HiCUP. This is the starting point for the 
 
 The repository contains the files generated to perform the given analysis. These files include:
 - snake.hicup.yml, a snakemake script that automates data pre-processing with HiCUP.
-- Hicup.yml, to generate the conda environment with all dependencies to run the HiCUP pipeline.
+- Hicup.yaml, to generate the conda environment with all dependencies to run the HiCUP pipeline.
 - sra_explorer_fastq_download.sh, for downloading the FastQ files of the GSM3682164 dataset.
 - cluster.json, configuration file that provides the cluster with user-input settings to run the workflow. Edit as required.
 - hicup_config_file.conf, configuration file for the hicup Perl script. Edit as required.
