@@ -1,3 +1,7 @@
+#To confirm HiCUP functions correctly on your system
+#download the Test Hi-C dataset. The test files ‘test_dataset1.fastq’ 
+#and ‘test_dataset2.fastq’ both contain human Hi-C reads in Sanger FASTQ format.
+
 rule download_datasets:
     output:
         fastq1="fastq/test_dataset/test_dataset1.fastq",
@@ -11,6 +15,8 @@ wget -N {params.url} -P $(dirname {params.gz});
 tar zxvf {params.gz} -C $(dirname $(dirname {output.fastq1} ) )
 rm -f {params.gz}
 
+#Download the reference genome for alignment and digestion
+
 rule download_reference_genome:
     output:
         fa="fa/GRCh37_latest_genomic.fna",
@@ -23,6 +29,7 @@ wget -N {params.url} -P $(dirname {params.gz});
 gunzip -c {params.gz} > {output.fa}
 rm -f {params.gz}
 """
+#Build index for the Bowtie2 aligner
 
 rule bowtie2_build:
     input: 
@@ -31,6 +38,8 @@ rule bowtie2_build:
         prefix="bowtie_index_aligner/reference"
         
     shell: """bowtie2-build {input} {params.prefix}"""
+
+#Create a digested reference genome to filter artefacts
 
 rule hicup_digester:
     input:
@@ -41,6 +50,8 @@ rule hicup_digester:
     
     shell:
         """{params.prefix}hicup_digester --genome Human_GRCh37 --re1 A^AGCTT,HindIII {input.fa}"""
+
+#Run the HiCUP pipeline
 
 rule hicup_pipeline:
     input:
