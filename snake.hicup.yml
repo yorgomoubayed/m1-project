@@ -1,0 +1,54 @@
+rule download_datasets:
+    output:
+        fastq1="fastq/test_dataset/test_dataset1.fastq",
+        fastq2="fastq/test_dataset/test_dataset2.fastq",
+    params:
+        url="http://www.bioinformatics.babraham.ac.uk/projects/hicup/test_dataset.tar.gz",
+        gz="fastq/test_dataset.tar.gz",
+    shell:
+        """
+wget -N {params.url} -P $(dirname {params.gz});
+tar zxvf {params.gz} -C $(dirname $(dirname {output.fastq1} ) )
+rm -f {params.gz}
+
+rule download_reference_genome:
+    output:
+        fa="fa/GRCh37_latest_genomic.fna",
+    params:
+        url="ftp://ftp.ncbi.nlm.nih.gov/refseq/H_sapiens/annotation/GRCh37_latest/refseq_identifiers/GRCh37_latest_genomic.fna.gz",
+        gz="gz/GRCh37_latest_genomic.fna.gz",
+    shell:
+        """
+wget -N {params.url} -P $(dirname {params.gz});
+gunzip -c {params.gz} > {output.fa}
+rm -f {params.gz}
+"""
+
+rule bowtie2_build:
+    input: 
+        fa="/scratch/yelmoubayed/GRCh37_latest_genomic.fna"
+    params:
+        prefix="bowtie_index_aligner/reference"
+        
+    shell: """bowtie2-build {input} {params.prefix}"""
+
+rule hicup_digester:
+    input:
+        fa="ref_genome/GRCh37_latest_genomic.fna",
+        
+    params:
+        prefix="HiCUP-master/"
+    
+    shell:
+        """{params.prefix}hicup_digester --genome Human_GRCh37 --re1 A^AGCTT,HindIII {input.fa}"""
+
+rule hicup_pipeline:
+    input:
+        config_file="hicup_config_file.conf",
+    
+    params:
+        prefix="HiCUP-master/",
+    
+    shell:
+        """{params.prefix}hicup --config {input.config_file}"""
+
