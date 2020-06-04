@@ -10,7 +10,7 @@ The repository contains the files generated to perform the given analysis. These
 - cluster.json, configuration file that provides the cluster with user-input settings to run the workflow. Edit as required.
 - hicup_config_file.conf, configuration file for the hicup Perl script. Edit as required.
 
-# Install HiCUP
+# Installing HiCUP
 
 ~~~
 conda create -n Hicup python=3.7
@@ -23,7 +23,7 @@ conda env update -f Hicup.yml
 
 Install the HiCUP repository : https://www.bioinformatics.babraham.ac.uk/projects/hicup/hicup_v0.7.3.tar.gz
 
-# Running HiCUP Tutorial
+# Running HiCUP - Tutorial
 
 The snake.hicup.yml contains a workflow that: 
   - Downloads the HiCUP training datasets.
