@@ -23,7 +23,7 @@ conda env update -f Hicup.yml
 
 Install the HiCUP repository : https://www.bioinformatics.babraham.ac.uk/projects/hicup/hicup_v0.7.3.tar.gz
 
-# Running HiCUP - Tutorial
+# Running HiCUP
 
 The snake.hicup.yml contains a workflow that: 
   - Downloads the HiCUP training datasets.
